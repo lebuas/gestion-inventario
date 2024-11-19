@@ -1,6 +1,6 @@
 
 class Negocio:
-    def __init__(self):
+    def __init__(self, productos, categorias, proveedores, bodegas):
         self.productos = []
         self.categorias = []
         self.proveedores = []
