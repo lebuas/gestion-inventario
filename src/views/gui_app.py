@@ -3,7 +3,7 @@ from tkinter import ttk
 from tkinter import messagebox
 
 
-class GuiApp:
+class SistemaInventarioApp:
     def __init__(self, root):
         self.root = root
         self.root.title("Sistema de Gestión de Inventarios")
@@ -86,83 +86,6 @@ class GuiApp:
                   command=self.agregar_producto_bodega).pack(pady=5)
         tk.Button(self.tab_bodega, text="Retirar Producto de Bodega",
                   command=self.retirar_producto_bodega).pack(pady=5)
-
-    # Métodos que se llaman al presionar los botones (cada uno pedirá los datos necesarios)
-    def registrar_producto(self):
-        messagebox.showinfo(
-            "Registrar Producto", "Aquí iría el formulario para registrar un producto.")
-
-    def registrar_categoria(self):
-        messagebox.showinfo(
-            "Registrar Categoría", "Aquí iría el formulario para registrar una categoría.")
-
-    def registrar_proveedor(self):
-        messagebox.showinfo(
-            "Registrar Proveedor", "Aquí iría el formulario para registrar un proveedor.")
-
-    def registrar_bodega(self):
-        messagebox.showinfo(
-            "Registrar Bodega", "Aquí iría el formulario para registrar una bodega.")
-
-    def consultar_informacion_producto(self):
-        messagebox.showinfo("Consultar Información Producto",
-                            "Aquí iría el formulario para consultar un producto.")
-
-    def consultar_informacion_categoria(self):
-        messagebox.showinfo("Consultar Información Categoría",
-                            "Aquí iría el formulario para consultar una categoría.")
-
-    def consultar_informacion_proveedor(self):
-        messagebox.showinfo("Consultar Información Proveedor",
-                            "Aquí iría el formulario para consultar un proveedor.")
-
-    def consultar_informacion_bodega(self):
-        messagebox.showinfo("Consultar Información Bodega",
-                            "Aquí iría el formulario para consultar una bodega.")
-
-    def consultar_producto_en_bodega(self):
-        messagebox.showinfo("Consultar Producto en Bodega",
-                            "Aquí iría el formulario para consultar un producto en la bodega.")
-
-    def calcular_valor_total_stock(self):
-        messagebox.showinfo("Calcular Valor Total Stock",
-                            "Aquí iría el formulario para calcular el valor total del stock.")
-
-    def generar_informe_stock(self):
-        messagebox.showinfo("Generar Informe Stock",
-                            "Aquí iría el formulario para generar un informe de stock.")
-
-    def aumentar_stock(self):
-        messagebox.showinfo(
-            "Aumentar Stock", "Aquí iría el formulario para aumentar el stock de un producto.")
-
-    def disminuir_stock(self):
-        messagebox.showinfo(
-            "Disminuir Stock", "Aquí iría el formulario para disminuir el stock de un producto.")
-
-    def agregar_producto_categoria(self):
-        messagebox.showinfo("Agregar Producto a Categoría",
-                            "Aquí iría el formulario para agregar un producto a una categoría.")
-
-    def eliminar_producto_categoria(self):
-        messagebox.showinfo("Eliminar Producto de Categoría",
-                            "Aquí iría el formulario para eliminar un producto de una categoría.")
-
-    def agregar_producto_proveedor(self):
-        messagebox.showinfo("Agregar Producto a Proveedor",
-                            "Aquí iría el formulario para agregar un producto a un proveedor.")
-
-    def eliminar_producto_proveedor(self):
-        messagebox.showinfo("Eliminar Producto de Proveedor",
-                            "Aquí iría el formulario para eliminar un producto de un proveedor.")
-
-    def agregar_producto_bodega(self):
-        messagebox.showinfo("Agregar Producto a Bodega",
-                            "Aquí iría el formulario para agregar un producto a una bodega.")
-
-    def retirar_producto_bodega(self):
-        messagebox.showinfo("Retirar Producto de Bodega",
-                            "Aquí iría el formulario para retirar un producto de la bodega.")
 
 
 if __name__ == "__main__":
