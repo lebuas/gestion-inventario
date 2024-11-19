@@ -1,12 +1,22 @@
 import tkinter as tk
 from tkinter import ttk
-from tkinter import messagebox
+from form_bodega import FormBodega
+from form_negocio import FormNegocio
+from form_proveedor import FormProveedor
+from form_producto import FormProducto
+from form_categoria import FormCategoria
 
 
 class SistemaInventarioApp:
     def __init__(self, root):
         self.root = root
         self.root.title("Sistema de Gestión de Inventarios")
+
+        negocion = FormNegocio
+        producto = FormProducto()
+        categoria = FormCategoria
+        proveedor = FormProveedor
+        bodega = FormBodega()
 
         # Crear el Notebook (pestañas)
         self.tab_control = ttk.Notebook(self.root)
