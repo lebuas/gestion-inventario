@@ -33,8 +33,14 @@ class Negocio:
                            }
         self.proveedores[nombre] = datos_proveedor
 
-    def registrar_bodega(self, bodega):
-        pass  # Lógica para registrar una bodega
+    def registrar_bodega(self, nombre, ubicacion, capacidad, lista_productos):
+        lista_productos = re.sub(r",\s+", ",", lista_productos)
+        lista_productos = [f"{x}" for x in lista_productos.split(",")]
+        datos_bodega = {"hubicacion": ubicacion,
+                        "capacidad": capacidad,
+                        "lista_producotos": lista_productos
+                        }
+        self.bodegas[nombre] = datos_bodega
 
     def consultar_informacion_producto(self, producto_id):
         pass  # Lógica para consultar información de un producto

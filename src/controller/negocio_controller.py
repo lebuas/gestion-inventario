@@ -135,7 +135,7 @@ class NegocioController(LisDatos):
     def controller_registro_bodega(self, datos, ventana):
         """
         Recibe una lista con los datos para registrar una bodega:
-        datos = [nombre_bodega, direccion_bodega]
+        datos = [nombre, hubicacion, capacida, lista_producotos]
         """
 
         if not self.verificar_datos(datos):
@@ -147,12 +147,15 @@ class NegocioController(LisDatos):
             return
 
         try:
-            # Registrar la bodega en el diccionario
-            self.bodegas[datos[0]] = {"direccion": datos[1]}
+
+            datos[2] = float(datos[2])
+            self.negocio.registrar_bodega(*datos)
 
             # Mostrar mensaje de éxito
             messagebox.showinfo(
                 "Éxito", f"Bodega '{datos[0]}' registrada correctamente.")
+
+            self.debug()
 
             # Cerrar la ventana del formulario solo si el registro es exitoso
             ventana.destroy()
@@ -160,4 +163,4 @@ class NegocioController(LisDatos):
         except Exception as e:
             # Captura cualquier otro error general
             messagebox.showerror(
-                "Error", f"Hubo un error al registrar la bodega: {e}")
+                "Error", f"La capacidad tiene que ser un numero {e}")
