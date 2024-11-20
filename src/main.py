@@ -1,7 +1,8 @@
-from controller.app_controller import AppController
 
-# variables glables con datos del negocio
-productos = []
-categoria = []
-proveedor = []
-bodega = []
+import tkinter as tk
+from views.gui_app import GuiApp
+
+if __name__ == "__main__":
+    root = tk.Tk()
+    app = GuiApp(root)
+    root.mainloop()
