@@ -1,9 +1,13 @@
-
 import tkinter as tk
 from tkinter import messagebox
+from controller.negocio_controller import NegocioController
+# Ahora puedes importar desde controller
 
 
 class FormNegocio:
+    def __init__(self):
+        self.control = NegocioController()
+
     def registrar_producto(self):
         # Crear una nueva ventana para el formulario
         ventana = tk.Toplevel()
@@ -35,10 +39,19 @@ class FormNegocio:
         categoria_entry = tk.Entry(ventana)
         categoria_entry.grid(row=4, column=1, padx=10, pady=5)
 
+        datos = {
+            nombre_entry.get(),
+            descripcion_entry.get(),
+            precio_entry.get(),
+            stock_entry.get(),
+            categoria_entry.get()
+        }
+
         # Botón para guardar
-        tk.Button(ventana, text="Guardar", command=lambda: self.guardar_producto(
-            nombre_entry.get(), descripcion_entry.get(), precio_entry.get(), stock_entry.get(), categoria_entry.get(), ventana)
-        ).grid(row=5, column=0, columnspan=2, pady=10)
+        tk.Button(ventana, text="Guardar",
+                  command=lambda: self.control.controller_registro_producto(
+                      datos, ventana
+                  )).grid(row=5, column=0, columnspan=2, pady=10)
 
     def registrar_categoria(self):
         ventana = tk.Toplevel()

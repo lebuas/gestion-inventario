@@ -1,10 +1,10 @@
 import tkinter as tk
 from tkinter import ttk
-from form_bodega import FormBodega
-from form_negocio import FormNegocio
-from form_proveedor import FormProveedor
-from form_producto import FormProducto
-from form_categoria import FormCategoria
+from views.form_bodega import FormBodega
+from views.form_negocio import FormNegocio
+from views.form_proveedor import FormProveedor
+from views.form_producto import FormProducto
+from views.form_categoria import FormCategoria
 
 
 class GuiApp:
@@ -96,9 +96,3 @@ class GuiApp:
                   command=bodega.agregar_producto_bodega).pack(pady=5)
         tk.Button(self.tab_bodega, text="Retirar Producto de Bodega",
                   command=bodega.retirar_producto_bodega).pack(pady=5)
-
-
-if __name__ == "__main__":
-    root = tk.Tk()
-    app = GuiApp(root)
-    root.mainloop()

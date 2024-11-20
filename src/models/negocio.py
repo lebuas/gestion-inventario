@@ -1,12 +1,12 @@
 
 class Negocio:
     def __init__(self, productos, categorias, proveedores, bodegas):
-        self.productos = []
-        self.categorias = []
-        self.proveedores = []
-        self.bodegas = []
+        self.productos = productos
+        self.categorias = categorias
+        self.proveedores = proveedores
+        self.bodegas = bodegas
 
-    def registrar_producto(self, producto):
+    def registrar_producto(self, nombre, descripcion, precio, stock):
         pass  # Lógica para registrar un producto
 
     def registrar_categoria(self, categoria):
