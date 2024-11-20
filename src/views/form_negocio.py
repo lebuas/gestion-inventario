@@ -1,6 +1,6 @@
 
 import tkinter as tk
-from tkinter import ttk, messagebox
+from tkinter import messagebox
 
 
 class FormNegocio:
@@ -39,23 +39,6 @@ class FormNegocio:
         tk.Button(ventana, text="Guardar", command=lambda: self.guardar_producto(
             nombre_entry.get(), descripcion_entry.get(), precio_entry.get(), stock_entry.get(), categoria_entry.get(), ventana)
         ).grid(row=5, column=0, columnspan=2, pady=10)
-
-    def guardar_producto(self, nombre, descripcion, precio, stock, categoria, ventana):
-        # Aquí puedes agregar lógica para guardar el producto en una base de datos o lista
-        if not (nombre and descripcion and precio and stock and categoria):
-            messagebox.showerror("Error", "Todos los campos son obligatorios.")
-            return
-
-        try:
-            precio = float(precio)
-            stock = int(stock)
-            # Simular guardado
-            messagebox.showinfo(
-                "Éxito", f"Producto '{nombre}' registrado correctamente.")
-            ventana.destroy()
-        except ValueError:
-            messagebox.showerror(
-                "Error", "Precio debe ser un número y stock un entero.")
 
     def registrar_categoria(self):
         ventana = tk.Toplevel()

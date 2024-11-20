@@ -7,7 +7,7 @@ from form_producto import FormProducto
 from form_categoria import FormCategoria
 
 
-class SistemaInventarioApp:
+class GuiApp:
     def __init__(self, root):
         self.root = root
         self.root.title("Sistema de Gestión de Inventarios")
@@ -100,5 +100,5 @@ class SistemaInventarioApp:
 
 if __name__ == "__main__":
     root = tk.Tk()
-    app = SistemaInventarioApp(root)
+    app = GuiApp(root)
     root.mainloop()
