@@ -1,12 +1,12 @@
+
 import tkinter as tk
 from tkinter import messagebox
 from controller.negocio_controller import NegocioController
-# Ahora puedes importar desde controller
 
 
 class FormNegocio:
     def __init__(self):
-        self.control = NegocioController()
+        self.controller = NegocioController()
 
     def registrar_producto(self):
         # Crear una nueva ventana para el formulario
@@ -39,19 +39,21 @@ class FormNegocio:
         categoria_entry = tk.Entry(ventana)
         categoria_entry.grid(row=4, column=1, padx=10, pady=5)
 
-        datos = {
-            nombre_entry.get(),
-            descripcion_entry.get(),
-            precio_entry.get(),
-            stock_entry.get(),
-            categoria_entry.get()
-        }
-
         # Botón para guardar
-        tk.Button(ventana, text="Guardar",
-                  command=lambda: self.control.controller_registro_producto(
-                      datos, ventana
-                  )).grid(row=5, column=0, columnspan=2, pady=10)
+        tk.Button(
+            ventana,
+            text="Guardar",
+            command=lambda: self.controller.controller_registro_producto(
+                [
+                    nombre_entry.get(),
+                    descripcion_entry.get(),
+                    precio_entry.get(),
+                    stock_entry.get(),
+                    categoria_entry.get()
+                ],
+                ventana
+            )
+        ).grid(row=5, column=0, columnspan=2, pady=10)
 
     def registrar_categoria(self):
         ventana = tk.Toplevel()
@@ -67,18 +69,12 @@ class FormNegocio:
         descripcion_entry = tk.Entry(ventana)
         descripcion_entry.grid(row=1, column=1, padx=10, pady=5)
 
-        tk.Button(ventana, text="Guardar", command=lambda: self.guardar_categoria(
-            nombre_entry.get(), descripcion_entry.get(), ventana)
-        ).grid(row=2, column=0, columnspan=2, pady=10)
-
-    def guardar_categoria(self, nombre, descripcion, ventana):
-        if not (nombre and descripcion):
-            messagebox.showerror("Error", "Todos los campos son obligatorios.")
-            return
-        # Simular guardado
-        messagebox.showinfo(
-            "Éxito", f"Categoría '{nombre}' registrada correctamente.")
-        ventana.destroy()
+        tk.Button(ventana, text="Guardar", command=lambda: self.controller.controller_registro_categoria(
+                  [
+                      nombre_entry.get(),
+                      descripcion_entry.get()],
+                  ventana)
+                  ).grid(row=2, column=0, columnspan=2, pady=10)
 
     def registrar_bodega(self):
         ventana = tk.Toplevel()
@@ -99,24 +95,24 @@ class FormNegocio:
         capacidad_entry = tk.Entry(ventana)
         capacidad_entry.grid(row=2, column=1, padx=10, pady=5)
 
-        tk.Button(ventana, text="Guardar", command=lambda: self.guardar_bodega(
-            nombre_entry.get(), ubicacion_entry.get(), capacidad_entry.get(), ventana)
-        ).grid(row=3, column=0, columnspan=2, pady=10)
+        tk.Label(ventana, text="Productos Almacenados:").grid(
+            row=3, column=0, padx=10, pady=5)
+        lista_productos_entry = tk.Entry(ventana)
+        lista_productos_entry.grid(row=3, column=1, padx=10, pady=5)
 
-    def guardar_bodega(self, nombre, ubicacion, capacidad, ventana):
-        if not (nombre and ubicacion and capacidad):
-            messagebox.showerror("Error", "Todos los campos son obligatorios.")
-            return
+        # Agregar una etiqueta para dar una instrucción al usuario
+        tk.Label(ventana, text="* Separe los productos con comas (,)",
+                 fg="red", font=("Arial", 8)).grid(
+            row=4, column=1, padx=10, pady=5, sticky="w")
 
-        try:
-            capacidad = int(capacidad)
-            # Simular guardado
-            messagebox.showinfo(
-                "Éxito", f"Bodega '{nombre}' registrada correctamente.")
-            ventana.destroy()
-        except ValueError:
-            messagebox.showerror(
-                "Error", "Capacidad debe ser un número entero.")
+        tk.Button(ventana, text="Guardar", command=lambda: self.controller.controller_registro_bodega(
+            [nombre_entry.get(),
+             ubicacion_entry.get(),
+             capacidad_entry.get(),
+             lista_productos_entry.get()
+             ],
+            ventana)
+        ).grid(row=5, column=0, columnspan=2, pady=10)
 
     def registrar_proveedor(self):
         ventana = tk.Toplevel()
@@ -137,18 +133,25 @@ class FormNegocio:
         telefono_entry = tk.Entry(ventana)
         telefono_entry.grid(row=2, column=1, padx=10, pady=5)
 
-        tk.Button(ventana, text="Guardar", command=lambda: self.guardar_proveedor(
-            nombre_entry.get(), direccion_entry.get(), telefono_entry.get(), ventana)
-        ).grid(row=3, column=0, columnspan=2, pady=10)
+        tk.Label(ventana, text="Productos que suministra:").grid(
+            row=3, column=0, padx=10, pady=5)
+        productos_entry = tk.Entry(ventana)
+        productos_entry.grid(row=3, column=1, padx=10, pady=5)
 
-    def guardar_proveedor(self, nombre, direccion, telefono, ventana):
-        if not (nombre and direccion and telefono):
-            messagebox.showerror("Error", "Todos los campos son obligatorios.")
-            return
-        # Simular guardado
-        messagebox.showinfo(
-            "Éxito", f"Proveedor '{nombre}' registrado correctamente.")
-        ventana.destroy()
+        # Agregar una etiqueta para dar una instrucción al usuario
+        tk.Label(ventana, text="* Separe los productos con comas (,)",
+                 fg="red", font=("Arial", 8)).grid(
+            row=4, column=1, padx=10, pady=5, sticky="w")
+
+        tk.Button(ventana, text="Guardar", command=lambda: self.controller.controller_registro_proveedor(
+            [
+                nombre_entry.get(),
+                direccion_entry.get(),
+                telefono_entry.get(),
+                productos_entry.get()
+            ],
+            ventana)
+        ).grid(row=5, column=0, columnspan=2, pady=10)
 
     def consultar_informacion_producto(self):
         ventana = tk.Toplevel()

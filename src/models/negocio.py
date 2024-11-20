@@ -1,3 +1,5 @@
+import re
+
 
 class Negocio:
     def __init__(self, productos, categorias, proveedores, bodegas):
@@ -6,14 +8,30 @@ class Negocio:
         self.proveedores = proveedores
         self.bodegas = bodegas
 
-    def registrar_producto(self, nombre, descripcion, precio, stock):
-        pass  # Lógica para registrar un producto
+    def registrar_producto(self, nombre, descripcion, precio, stock, categoria):
+        producto = {
+            "descripcion": descripcion,
+            "categoria": categoria,
+            "precio": precio,
+            "stock": stock
+        }
 
-    def registrar_categoria(self, categoria):
-        pass  # Lógica para registrar una categoría
+        self.productos[nombre] = producto
 
-    def registrar_proveedor(self, proveedor):
-        pass  # Lógica para registrar un proveedor
+    def registrar_categoria(self, nombre, descripcion):
+        descripcion = {
+            "descripcion": descripcion
+        }
+        self.categorias[nombre] = descripcion
+
+    def registrar_proveedor(self, nombre, direccion, telefono, lista_productos):
+        lista_productos = re.sub(r",\s+", ",", lista_productos)
+        lista_productos = [f"{x}" for x in lista_productos.split(",")]
+        datos_proveedor = {"direccion": direccion,
+                           "telefono": telefono,
+                           "lista_producotos": lista_productos
+                           }
+        self.proveedores[nombre] = datos_proveedor
 
     def registrar_bodega(self, bodega):
         pass  # Lógica para registrar una bodega
