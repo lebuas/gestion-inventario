@@ -5,6 +5,7 @@ class ModeloDatos:
         self.productos = []
         self.proveedores = []
         self.bodegas = []
+        self. categoria = []
 
     def agregar_producto(self, nombre, descripcion, precio, stock, categoria):
         producto = {
