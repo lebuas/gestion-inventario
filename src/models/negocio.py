@@ -17,19 +17,21 @@ class Negocio:
         }
 
         self.productos[nombre] = producto
+        self.categorias[categoria]['productos'].append(nombre)
 
     def registrar_categoria(self, nombre, descripcion):
-        descripcion = {
-            "descripcion": descripcion
+        categoria = {
+            "descripcion": descripcion,
+            "productos": []
         }
-        self.categorias[nombre] = descripcion
+        self.categorias[nombre] = categoria
 
     def registrar_proveedor(self, nombre, direccion, telefono, lista_productos):
         lista_productos = re.sub(r",\s+", ",", lista_productos)
         lista_productos = [f"{x}" for x in lista_productos.split(",")]
         datos_proveedor = {"direccion": direccion,
                            "telefono": telefono,
-                           "lista_producotos": lista_productos
+                           "productos": list(lista_productos)
                            }
         self.proveedores[nombre] = datos_proveedor
 
@@ -38,7 +40,7 @@ class Negocio:
         lista_productos = [f"{x}" for x in lista_productos.split(",")]
         datos_bodega = {"hubicacion": ubicacion,
                         "capacidad": capacidad,
-                        "lista_producotos": lista_productos
+                        "lista_producotos": list(lista_productos)
                         }
         self.bodegas[nombre] = datos_bodega
 
@@ -48,8 +50,9 @@ class Negocio:
     def consultar_informacion_categoria(self, categoria_id):
         pass  # Lógica para consultar información de una categoría
 
-    def consultar_informacion_proveedor(self, proveedor_id):
-        pass  # Lógica para consultar información de un proveedor
+    def consultar_informacion_proveedor(self, nombre):
+        datos_proveedor = self.proveedores[nombre]
+        return datos_proveedor
 
     def consultar_informacion_bodega(self, bodega_id):
         pass  # Lógica para consultar información de una bodega

@@ -162,7 +162,7 @@ class FormNegocio:
         producto_entry = tk.Entry(ventana)
         producto_entry.grid(row=0, column=1, padx=10, pady=5)
 
-        tk.Button(ventana, text="Consultar", command=lambda: self.mostrar_informacion_producto(producto_entry.get())).grid(
+        tk.Button(ventana, text="Consultar", command=lambda: self.conllo(producto_entry.get())).grid(
             row=1, column=0, columnspan=2, pady=10)
 
     def mostrar_informacion_producto(self, producto):
@@ -203,16 +203,8 @@ class FormNegocio:
         proveedor_entry = tk.Entry(ventana)
         proveedor_entry.grid(row=0, column=1, padx=10, pady=5)
 
-        tk.Button(ventana, text="Consultar", command=lambda: self.mostrar_informacion_proveedor(proveedor_entry.get())).grid(
+        tk.Button(ventana, text="Consultar", command=lambda: self.controller.controller_consulta_informacion_proveedor([proveedor_entry.get()], ventana)).grid(
             row=1, column=0, columnspan=2, pady=10)
-
-    def mostrar_informacion_proveedor(self, proveedor):
-        if proveedor:  # Reemplazar con lógica real
-            messagebox.showinfo("Información del Proveedor",
-                                f"Detalles del proveedor: {proveedor}")
-        else:
-            messagebox.showerror(
-                "Error", "Debe ingresar un nombre de proveedor.")
 
     def consultar_informacion_bodega(self):
         ventana = tk.Toplevel()

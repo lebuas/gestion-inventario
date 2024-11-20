@@ -1,6 +1,7 @@
 from controller.lista_datos import LisDatos
 from models.negocio import Negocio
 from tkinter import messagebox
+import tkinter as tk
 
 
 class NegocioController(LisDatos):
@@ -42,6 +43,10 @@ class NegocioController(LisDatos):
             messagebox.showinfo(
                 "Aviso", f"el producto{datos[0]} ya se encuentra registrado")
             return
+        if datos[4] not in self.categorias:
+            messagebox.showinfo(
+                "Aviso", "Esa categoria no esta registrada, registrela antes de agregar el producto")
+            return
 
         try:
             # Modificar los datos si es necesario antes de enviarlos
@@ -57,6 +62,8 @@ class NegocioController(LisDatos):
 
             # Cerrar la ventana del formulario solo si el registro es exitoso
             self.debug()
+
+            ventana.destroy()
 
         except ValueError:
             # Captura el error si no se puede convertir precio o stock
@@ -114,6 +121,7 @@ class NegocioController(LisDatos):
 
         try:
             # Registrar el proveedor utilizando el método del modelo
+            datos[2] = int(datos[2])
             self.negocio.registrar_proveedor(*datos)
 
             # Mostrar mensaje de éxito
@@ -130,7 +138,7 @@ class NegocioController(LisDatos):
         except Exception as e:
             # Captura cualquier error general durante el proceso
             messagebox.showerror(
-                "Error", f"Hubo un error al registrar el proveedor: {e}")
+                "Error", f"El telefono tiene que ser un numero: {e}")
 
     def controller_registro_bodega(self, datos, ventana):
         """
@@ -164,3 +172,41 @@ class NegocioController(LisDatos):
             # Captura cualquier otro error general
             messagebox.showerror(
                 "Error", f"La capacidad tiene que ser un numero {e}")
+
+    def controller_consulta_informacion_proveedor(self, datos, ventana):
+
+        if not self.verificar_datos(datos):
+            return  # Si los datos no son válidos, no continuar con el registro
+
+        if datos[0] not in self.proveedores:  # Verificar si  hay un proveedor con ese nombre
+            messagebox.showinfo(
+                "Aviso", f"El proveedor'{datos[0]}' no se encuentra registrado.")
+            return
+
+        try:
+
+            proveedor = self.negocio.consultar_informacion_proveedor(*datos)
+
+            # Crear ventana para mostrar información del proveedor
+            ventana_info = tk.Toplevel()
+            ventana_info.title(f"{datos[0]}")
+
+            # Mostrar información en la ventana
+            info = f"""
+            Nombre: {datos[0]}
+            Dirección: {proveedor['direccion']}
+            Teléfono: {proveedor['telefono']}
+            Productos: {', '.join(proveedor['productos'])}
+            """
+            tk.Label(ventana_info, text=info, justify="left",
+                     font=("Arial", 10)).pack(padx=10, pady=10)
+
+            self.debug()
+
+            # Cerrar la ventana del formulario solo si el registro es exitoso
+            ventana.destroy()
+
+        except Exception as e:
+            # Captura cualquier otro error general
+            messagebox.showerror(
+                "Error", f" Error al consultar proveedor {e}")
