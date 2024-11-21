@@ -28,6 +28,14 @@ class NegocioController(LisDatos):
             return False
         return True
 
+    def limpiar_formulario(self, frame):
+        """
+        Limpiar todos los widgets dentro del frame, especialmente los campos Entry.
+        """
+        for widget in frame.winfo_children():
+            if isinstance(widget, tk.Entry):  # Si el widget es un campo de texto (Entry)
+                widget.delete(0, tk.END)  # Limpiar el contenido
+
     def controller_registro_producto(self, datos, ventana):
         """
         controller_registro_producto, recibe una lista con los datos que
@@ -71,7 +79,7 @@ class NegocioController(LisDatos):
             # Cerrar la ventana del formulario solo si el registro es exitoso
             self.debug()
 
-            ventana.destroy()
+            self.limpiar_formulario(ventana)
 
         except ValueError:
             # Captura el error si no se puede convertir precio o stock
@@ -103,7 +111,7 @@ class NegocioController(LisDatos):
 
             self.debug()
             # Cerrar la ventana del formulario solo si el registro es exitoso
-            ventana.destroy()
+            # ventana.destroy()
 
         except Exception as e:
             # Captura cualquier otro error general

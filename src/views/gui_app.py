@@ -152,8 +152,8 @@ class GuiApp:
 
         # Opciones específicas para Producto
         actions = [
-            ("Aumentar Stock", producto.aumentar_stock),
-            ("Disminuir Stock", producto.disminuir_stock),
+            ("Aumentar Stock", lambda: producto.aumentar_stock(frame)),
+            ("Disminuir Stock", lambda: producto.disminuir_stock(frame)),
         ]
 
         # Actualizar botones en el panel izquierdo
@@ -170,9 +170,10 @@ class GuiApp:
 
         # Opciones específicas para Categoría
         actions = [
-            ("Agregar Producto a Categoría", categoria.agregar_producto_categoria),
+            ("Agregar Producto a Categoría",
+             lambda: categoria.agregar_producto_categoria(frame)),
             ("Eliminar Producto de Categoría",
-             categoria.eliminar_producto_categoria),
+             lambda: categoria.eliminar_producto_categoria(frame)),
         ]
 
         # Actualizar botones en el panel izquierdo
@@ -189,9 +190,10 @@ class GuiApp:
 
         # Opciones específicas para Proveedor
         actions = [
-            ("Agregar Producto a Proveedor", proveedor.agregar_producto_proveedor),
+            ("Agregar Producto a Proveedor",
+             lambda: proveedor.agregar_producto_proveedor(frame)),
             ("Eliminar Producto de Proveedor",
-             proveedor.eliminar_producto_proveedor),
+             lambda: proveedor.eliminar_producto_proveedor(frame)),
         ]
 
         # Actualizar botones en el panel izquierdo
@@ -208,8 +210,10 @@ class GuiApp:
 
         # Opciones específicas para Bodega
         actions = [
-            ("Agregar Producto a Bodega", bodega.agregar_producto_bodega),
-            ("Retirar Producto de Bodega", bodega.retirar_producto_bodega),
+            ("Agregar Producto a Bodega",
+             lambda: bodega.agregar_producto_bodega(frame)),
+            ("Retirar Producto de Bodega",
+             lambda: bodega.retirar_producto_bodega(frame)),
         ]
 
         # Actualizar botones en el panel izquierdo

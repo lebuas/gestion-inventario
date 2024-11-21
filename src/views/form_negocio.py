@@ -44,13 +44,13 @@ class FormNegocio:
         proveedor_entry.grid(row=5, column=1, padx=10, pady=5)
 
         # Botón para guardar
-        tk.Button(formulario_frame, text="Guardar", command=lambda: self.guardar_producto(
-            nombre_entry.get(),
-            descripcion_entry.get(),
-            precio_entry.get(),
-            stock_entry.get(),
-            categoria_entry.get(),
-            proveedor_entry.get()
+        tk.Button(formulario_frame, text="Guardar", command=lambda: self.controller.controller_registro_producto(
+            [nombre_entry.get(),
+             descripcion_entry.get(),
+             precio_entry.get(),
+             stock_entry.get(),
+             categoria_entry.get(),
+             proveedor_entry.get()], frame
         )).grid(row=6, column=0, columnspan=2, pady=10)
 
     def registrar_categoria(self, frame):
