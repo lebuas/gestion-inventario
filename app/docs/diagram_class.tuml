@@ -1,0 +1,196 @@
+@startuml
+package "Modelo" {
+  class Negocio {
+    - productos
+    - categorias
+    - proveedores
+    - bodegas
+    + registrar_producto()
+    + registrar_categoria()
+    + registrar_proveedor()
+    + registrar_bodega()
+    + consultar_informacion_producto()
+    + consultar_informacion_categoria()
+    + consultar_informacion_proveedor()
+    + consultar_informacion_bodega()
+    + consultar_producto_en_bodega()
+    + calcular_valor_total_stock()
+    + generar_informe_stock()
+  }
+
+  class Producto {
+    - nombre
+    - descripcion
+    - precio
+    - stock
+    + aumentar_stock()
+    + disminuir_stock()
+    + get_nombre()
+    + set_nombre()
+    + get_descripcion()
+    + set_descripcion()
+    + get_precio()
+    + set_precio()
+    + get_stock()
+    + set_stock()
+  }
+
+  class Categoria {
+    - nombre
+    - descripcion
+    - lista_productos
+    + agregar_producto_categoria_existente()
+    + eliminar_producto_categoria_existente()
+    + get_nombre()
+    + set_nombre()
+    + get_descripcion()
+    + set_descripcion()
+  }
+
+  class Proveedor {
+    - nombre
+    - direccion
+    - telefono
+    - lista_productos_suministrados
+    + agregar_producto_suministros()
+    + eliminar_producto_suministros()
+    + get_nombre()
+    + set_nombre()
+    + get_direccion()
+    + set_direccion()
+    + get_telefono()
+    + set_telefono()
+  }
+
+  class Bodega {
+    - nombre
+    - ubicacion
+    - capacidad_maxima
+    - lista_productos_almacenados
+    + agregar_producto_a_bodega()
+    + retirar_producto_de_bodega()
+    + get_nombre()
+    + set_nombre()
+    + get_ubicacion()
+    + set_ubicacion()
+    + get_capacidad_maxima()
+    + set_capacidad_maxima()
+  }
+
+  class Database {
+    + conectar()
+    + obtener_datos_producto()
+    + obtener_datos_categoria()
+    + obtener_datos_proveedor()
+    + obtener_datos_bodega()
+    + set_datos_producto()
+    + get_datos_producto()
+    + set_datos_categoria()
+    + get_datos_categoria()
+    + set_datos_proveedor()
+    + get_datos_proveedor()
+    + set_datos_bodega()
+    + get_datos_bodega()
+  }
+}
+
+package "Controlador" {
+  class NegocioController {
+    + controller_registro_producto()
+    + controller_registro_categoria()
+    + controller_registro_proveedor()
+    + controller_registro_bodega()
+    + controller_consulta_informacion_producto()
+    + controller_consulta_informacion_categoria()
+    + controller_consulta_informacion_proveedor()
+    + controller_consulta_informacion_bodega()
+    + controller_consulta_producto_en_bodega()
+    + controller_calcular_total_stock()
+    + controller_generar_informe_stock()
+  }
+
+  class BodegaController {
+    + gestionar_registro_bodega()
+    + gestionar_modificar_bodega()
+    + consultar_bodega()
+  }
+
+  class CategoriaController {
+    + gestionar_registro_categoria()
+    + gestionar_modificar_categoria()
+    + consultar_categoria()
+  }
+
+  class ProductoController {
+    + gestionar_registro_producto()
+    + gestionar_modificar_producto()
+    + consultar_producto()
+  }
+
+  class ProveedorController {
+    + gestionar_registro_proveedor()
+    + gestionar_modificar_proveedor()
+    + consultar_proveedor()
+  }
+}
+
+package "Vista" {
+  class FormBodega {
+    + mostrar_lista_bodegas()
+    + mostrar_detalle_bodega()
+    + mostrar_formulario_registro_bodega()
+  }
+
+  class FormCategoria {
+    + mostrar_lista_categorias()
+    + mostrar_detalle_categoria()
+    + mostrar_formulario_registro_categoria()
+  }
+
+  class FormNegocio {
+    + mostrar_lista_negocio()
+    + mostrar_detalle_negocio()
+    + mostrar_formulario_registro_negocio()
+  }
+
+  class FormProducto {
+    + mostrar_lista_productos()
+    + mostrar_detalle_producto()
+    + mostrar_formulario_registro_producto()
+  }
+
+  class FormProveedor {
+    + mostrar_lista_proveedores()
+    + mostrar_detalle_proveedor()
+    + mostrar_formulario_registro_proveedor()
+  }
+
+  class GUIApp {
+    + iniciar_gui()
+  }
+}
+
+Negocio "1" --> "*" Producto
+Negocio "1" --> "*" Categoria
+Negocio "1" --> "*" Proveedor
+Negocio "1" --> "*" Bodega
+Producto "1" --> "1" Database
+Categoria "1" --> "1" Database
+Proveedor "1" --> "1" Database
+Bodega "1" --> "1" Database
+NegocioController "1" --> "1" Negocio
+BodegaController "1" --> "1" Bodega
+CategoriaController "1" --> "1" Categoria
+ProductoController "1" --> "1" Producto
+ProveedorController "1" --> "1" Proveedor
+FormBodega "1" --> "1" BodegaController
+FormCategoria "1" --> "1" CategoriaController
+FormProducto "1" --> "1" ProductoController
+FormProveedor "1" --> "1" ProveedorController
+FormNegocio "1" --> "1" NegocioController
+GUIApp "1" --> "*" FormBodega
+GUIApp "1" --> "*" FormCategoria
+GUIApp "1" --> "*" FormProducto
+GUIApp "1" --> "*" FormProveedor
+GUIApp "1" --> "*" FormNegocio
+@enduml
