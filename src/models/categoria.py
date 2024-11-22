@@ -1,12 +1,40 @@
-class Categoria():
+from models.database import DataBase
 
-    def __init__(self, nombre, descripcion, lista):
-        self.nombre_categoira = nombre
-        self.descripcion_categoria = descripcion
-        self.lista_productos_alamacenados = lista
 
-    def agregar_producto_categoria_existente():
-        pass
+class Categoria:
+    def __init__(self):
+        self.db = DataBase()
+        self.categorias = self.db.get_categorias()
 
-    def elimiar_producto_categoria_existente():
-        pass
+    def get_datos(self):
+        return self.categorias
+
+    def añadir_producto(self, categoria, producto):
+        """
+        Añade un producto a la lista de productos de una categoría específica.
+        """
+        # Verificar si el producto ya está en la lista
+        if producto in self.categorias[categoria]['productos']:
+            return False  # El producto ya está en la lista
+
+        self.categorias[categoria]['productos'].append(producto)
+
+        # Guardar los cambios
+        self.db.set_categorias(self.categorias)
+        return True
+
+    def retirar_producto(self, categoria, producto):
+        """
+        Retira un producto de la lista de productos de una categoría específica.
+        """
+        if categoria not in self.categorias:
+            return False
+
+        if producto not in self.categorias[categoria]['productos']:
+            return False
+
+        self.categorias[categoria]['productos'].remove(producto)
+
+        # Guardar los cambios
+        self.db.set_categorias(self.categorias)
+        return True

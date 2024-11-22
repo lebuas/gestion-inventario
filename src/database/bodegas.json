@@ -1,0 +1,16 @@
+{
+    "bodega1": {
+        "ubicacion": "Ubicación de la bodega 1",
+        "capacidad": 100,
+        "productos": [
+            "producto1"
+        ]
+    },
+    "bodega2": {
+        "ubicacion": "Ubicación de la bodega 2",
+        "capacidad": 200,
+        "productos": [
+            "producto2"
+        ]
+    }
+}

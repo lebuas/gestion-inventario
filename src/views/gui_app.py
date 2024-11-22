@@ -71,6 +71,23 @@ class GuiApp:
         # Asociar las funciones de cada tab
         self.notebook.bind("<<NotebookTabChanged>>", self.on_tab_change)
 
+    def __message_welcome(self, dependence, frame):
+        welcome_message = tk.Label(frame, text=f"Bienvenido a la {dependence}.\n Selecciona una de las opciones para comenzar.",
+                                   font=("Arial", 12), bg="lightgray", anchor="center")
+        welcome_message.pack(pady=20, padx=10, expand=True, fill="both")
+
+    def clear_frame(self, frame, action):
+        """
+        Limpia el contenido del frame derecho y ejecuta una acción.
+
+        Args:
+        frame (tk.Frame): El contenedor que debe ser limpiado.
+        action (callable): La acción que se ejecutará después de limpiar.
+        """
+        for widget in frame.winfo_children():
+            widget.destroy()  # Eliminar todos los widgets del frame
+        action()  # Ejecutar la acción proporcionada
+
     def on_tab_change(self, event):
         """Actualizar las opciones a la izquierda cuando se cambia de pestaña."""
         current_tab = self.notebook.index(
@@ -113,30 +130,36 @@ class GuiApp:
     def show_negocio_tab(self):
         frame = tk.Frame(self.right_frame)
         negocio = FormNegocio()
+        dependence = "Gestión de Negocio"
 
         # Actualizar el título de la sección
-        self.show_section_title("Gestión de Negocio")
+        self.show_section_title(dependence)
+        self.__message_welcome(dependence, frame)
 
         # Opciones específicas para Negocio
-
         actions = [
-            ("Registrar Producto", lambda: negocio.registrar_producto(frame)),
-            ("Registrar Categoría", lambda: negocio.registrar_categoria(frame)),
-            ("Registrar Proveedor", lambda: negocio.registrar_proveedor(frame)),
-            ("Registrar Bodega", lambda: negocio.registrar_bodega(frame)),
-            ("Consultar Información Producto",
-             lambda: negocio.consultar_informacion_producto(frame)),
-            ("Consultar Información Categoría",
-             lambda: negocio.consultar_informacion_categoria(frame)),
-            ("Consultar Información Proveedor",
-             lambda: negocio.consultar_informacion_proveedor(frame)),
-            ("Consultar Información Bodega",
-             lambda: negocio.consultar_informacion_bodega(frame)),
-            ("Consultar Producto en Bodega",
-             lambda: negocio.consultar_producto_en_bodega(frame)),
-            ("Calcular Valor Total Stock",
-             lambda: negocio.calcular_valor_total_stock()),
-            ("Generar Informe Stock", lambda: negocio.generar_informe_stock()),
+            ("Registrar Producto", lambda: self.clear_frame(
+                frame, lambda: negocio.registrar_producto(frame))),
+            ("Registrar Categoría", lambda: self.clear_frame(
+                frame, lambda: negocio.registrar_categoria(frame))),
+            ("Registrar Proveedor", lambda: self.clear_frame(
+                frame, lambda: negocio.registrar_proveedor(frame))),
+            ("Registrar Bodega", lambda: self.clear_frame(
+                frame, lambda: negocio.registrar_bodega(frame))),
+            ("Consultar Información Producto", lambda: self.clear_frame(
+                frame, lambda: negocio.consultar_informacion_producto(frame))),
+            ("Consultar Información Categoría", lambda: self.clear_frame(
+                frame, lambda: negocio.consultar_informacion_categoria(frame))),
+            ("Consultar Información Proveedor", lambda: self.clear_frame(
+                frame, lambda: negocio.consultar_informacion_proveedor(frame))),
+            ("Consultar Información Bodega", lambda: self.clear_frame(
+                frame, lambda: negocio.consultar_informacion_bodega(frame))),
+            ("Consultar Producto en Bodega", lambda: self.clear_frame(
+                frame, lambda: negocio.consultar_producto_en_bodega(frame))),
+            ("Calcular Valor Total Stock", lambda: self.clear_frame(
+                frame, lambda: negocio.calcular_valor_total_stock())),
+            ("Generar Informe Stock", lambda: self.clear_frame(
+                frame, lambda: negocio.generar_informe_stock())),
         ]
         # Actualizar botones en el panel izquierdo
         self.update_left_buttons(actions)
@@ -146,14 +169,18 @@ class GuiApp:
     def show_producto_tab(self):
         frame = tk.Frame(self.right_frame)
         producto = FormProducto()
+        dependence = "Gestión de Producto"
 
         # Actualizar el título de la sección
-        self.show_section_title("Gestión de Producto")
+        self.show_section_title(dependence)
+        self.__message_welcome(dependence, frame)
 
         # Opciones específicas para Producto
         actions = [
-            ("Aumentar Stock", lambda: producto.aumentar_stock(frame)),
-            ("Disminuir Stock", lambda: producto.disminuir_stock(frame)),
+            ("Aumentar Stock", lambda: self.clear_frame(
+                frame, lambda: producto.aumentar_stock(frame))),
+            ("Disminuir Stock", lambda: self.clear_frame(
+                frame, lambda: producto.disminuir_stock(frame))),
         ]
 
         # Actualizar botones en el panel izquierdo
@@ -164,16 +191,18 @@ class GuiApp:
     def show_categoria_tab(self):
         frame = tk.Frame(self.right_frame)
         categoria = FormCategoria()
+        dependence = "Gestión de Categorías"
 
         # Actualizar el título de la sección
-        self.show_section_title("Gestión de Categorías")
+        self.show_section_title(dependence)
+        self.__message_welcome(dependence, frame)
 
         # Opciones específicas para Categoría
         actions = [
-            ("Agregar Producto a Categoría",
-             lambda: categoria.agregar_producto_categoria(frame)),
-            ("Eliminar Producto de Categoría",
-             lambda: categoria.eliminar_producto_categoria(frame)),
+            ("Agregar Producto a Categoría", lambda: self.clear_frame(
+                frame, lambda: categoria.agregar_producto_categoria(frame))),
+            ("Eliminar Producto de Categoría", lambda: self.clear_frame(
+                frame, lambda: categoria.eliminar_producto_categoria(frame))),
         ]
 
         # Actualizar botones en el panel izquierdo
@@ -184,16 +213,18 @@ class GuiApp:
     def show_proveedor_tab(self):
         frame = tk.Frame(self.right_frame)
         proveedor = FormProveedor()
+        dependence = "Gestión de Proveedores"
 
         # Actualizar el título de la sección
-        self.show_section_title("Gestión de Proveedores")
+        self.show_section_title(dependence)
+        self.__message_welcome(dependence, frame)
 
         # Opciones específicas para Proveedor
         actions = [
-            ("Agregar Producto a Proveedor",
-             lambda: proveedor.agregar_producto_proveedor(frame)),
-            ("Eliminar Producto de Proveedor",
-             lambda: proveedor.eliminar_producto_proveedor(frame)),
+            ("Agregar Producto a Proveedor", lambda: self.clear_frame(
+                frame, lambda: proveedor.agregar_producto_proveedor(frame))),
+            ("Eliminar Producto de Proveedor", lambda: self.clear_frame(
+                frame, lambda: proveedor.eliminar_producto_proveedor(frame))),
         ]
 
         # Actualizar botones en el panel izquierdo
@@ -204,16 +235,18 @@ class GuiApp:
     def show_bodega_tab(self):
         frame = tk.Frame(self.right_frame)
         bodega = FormBodega()
+        dependence = "Gestión de Bodega"
 
         # Actualizar el título de la sección
-        self.show_section_title("Gestión de Bodega")
+        self.show_section_title(dependence)
+        self.__message_welcome(dependence, frame)
 
         # Opciones específicas para Bodega
         actions = [
-            ("Agregar Producto a Bodega",
-             lambda: bodega.agregar_producto_bodega(frame)),
-            ("Retirar Producto de Bodega",
-             lambda: bodega.retirar_producto_bodega(frame)),
+            ("Agregar Producto a Bodega", lambda: self.clear_frame(
+                frame, lambda: bodega.agregar_producto_bodega(frame))),
+            ("Retirar Producto de Bodega", lambda: self.clear_frame(
+                frame, lambda: bodega.retirar_producto_bodega(frame))),
         ]
 
         # Actualizar botones en el panel izquierdo

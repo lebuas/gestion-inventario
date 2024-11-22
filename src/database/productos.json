@@ -1,0 +1,16 @@
+{
+    "muebles": {
+        "descripcion": "muesbles blancos",
+        "categoria": "casa",
+        "proveedor": "leymar",
+        "precio": 25000.0,
+        "stock": 5
+    },
+    "leche": {
+        "descripcion": "asdfdsf",
+        "categoria": "hogar",
+        "proveedor": "luis",
+        "precio": 32423.0,
+        "stock": 195.0
+    }
+}

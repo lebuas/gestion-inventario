@@ -1,0 +1,18 @@
+{
+    "leymar": {
+        "direccion": "diagona26",
+        "telefono": 318524,
+        "productos": [
+            "camas",
+            "muebles"
+        ]
+    },
+    "luis": {
+        "direccion": "afsds",
+        "telefono": 234324,
+        "productos": [
+            "cafe",
+            "leche"
+        ]
+    }
+}

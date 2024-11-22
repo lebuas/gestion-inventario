@@ -1,0 +1,20 @@
+{
+    "a": {
+        "descripcion": "sdaf",
+        "productos": []
+    },
+    "asfdasdfds": {
+        "descripcion": "asdf",
+        "productos": []
+    },
+    "hogar": {
+        "descripcion": "productos del hogar",
+        "productos": [
+            "leche"
+        ]
+    },
+    "animales": {
+        "descripcion": "animales marinos",
+        "productos": []
+    }
+}

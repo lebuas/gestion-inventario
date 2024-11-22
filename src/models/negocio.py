@@ -1,14 +1,19 @@
 import re
+from models.database import DataBase
 
 
 class Negocio:
-    def __init__(self, productos, categorias, proveedores, bodegas):
-        self.productos = productos
-        self.categorias = categorias
-        self.proveedores = proveedores
-        self.bodegas = bodegas
+    def __init__(self):
+        self.db = DataBase()
+
+    def get_datos(self):
+        return {"productos": self.db.get_productos(),
+                "categorias": self.db.get_categorias(),
+                "proveedores": self.db.get_proveedores(),
+                "bodegas": self.db.get_bodegas(), }
 
     def registrar_producto(self, nombre, descripcion, precio, stock, categoria, proveedor):
+        # Crear un producto con los datos proporcionados
         producto = {
             "descripcion": descripcion,
             "categoria": categoria,
@@ -17,66 +22,94 @@ class Negocio:
             "stock": stock
         }
 
-        self.productos[nombre] = producto
-        self.categorias[categoria]['productos'].append(nombre)
-        self.proveedores[proveedor]['productos'].append(nombre)
+        # Obtener los productos actuales
+        productos = self.db.get_productos()
+        # Añadir el nuevo producto
+        productos[nombre] = producto
 
-        self.proveedores[proveedor]['productos'] = list(
-            set(self.proveedores[proveedor]['productos']))
+        # Añadir el nombre del producto a la lista de productos de la categoría y proveedor correspondientes
+        self.db.get_categorias()[categoria]['productos'].append(nombre)
+        self.db.get_proveedores()[proveedor]['productos'].append(nombre)
+
+        # Eliminar duplicados de la lista de productos del proveedor
+        self.db.get_proveedores()[proveedor]['productos'] = list(
+            set(self.db.get_proveedores()[proveedor]['productos']))
+
+        # Guardar los cambios
+        self.db.set_productos(productos)
+        self.db.set_categorias(self.db.get_categorias())
+        self.db.set_proveedores(self.db.get_proveedores())
 
     def registrar_categoria(self, nombre, descripcion):
+        # Crear una nueva categoría
         categoria = {
             "descripcion": descripcion,
-            "productos": []
+            "productos": []  # Iniciar la lista de productos vacía
         }
-        self.categorias[nombre] = categoria
+
+        # Obtener las categorías existentes
+        categorias = self.db.get_categorias()
+        categorias[nombre] = categoria
+
+        # Guardar los cambios
+        self.db.set_categorias(categorias)
 
     def registrar_proveedor(self, nombre, direccion, telefono, lista_productos):
+        # Limpiar y procesar la lista de productos del proveedor
         lista_productos = re.sub(r",\s+", ",", lista_productos)
         lista_productos = [f"{x}" for x in lista_productos.split(",")]
-        datos_proveedor = {"direccion": direccion,
-                           "telefono": telefono,
-                           "productos": list(lista_productos)
-                           }
-        self.proveedores[nombre] = datos_proveedor
-        self.proveedores[nombre]['productos'] = list(
-            set(self.proveedores[nombre]['productos']))
+
+        # Obtener los proveedores actuales
+        proveedores = self.db.get_proveedores()
+        proveedores[nombre] = {
+            "direccion": direccion,
+            "telefono": telefono,
+            "productos": lista_productos
+        }
+
+        # Guardar los cambios
+        self.db.set_proveedores(proveedores)
+
+        return True
 
     def registrar_bodega(self, nombre, ubicacion, capacidad, lista_productos):
+        # Limpiar y procesar la lista de productos de la bodega
         lista_productos = re.sub(r",\s+", ",", lista_productos)
         lista_productos = [f"{x}" for x in lista_productos.split(",")]
-        datos_bodega = {"ubicacion": ubicacion,
-                        "capacidad": capacidad,
-                        "productos": list(lista_productos)
-                        }
-        self.bodegas[nombre] = datos_bodega
+
+        # Obtener las bodegas actuales
+        bodegas = self.db.get_bodegas()
+        bodegas[nombre] = {
+            "ubicacion": ubicacion,
+            "capacidad": capacidad,
+            "productos": lista_productos
+        }
+
+        # Guardar los cambios
+        self.db.set_bodegas(bodegas)
+
+        return True
 
     def consultar_informacion_producto(self, nombre):
-        datos_producto = self.productos[nombre]
-        return datos_producto
+        return self.db.get_productos().get(nombre)
 
     def consultar_informacion_categoria(self, nombre):
-        datos_categoria = self.categorias[nombre]
-        return datos_categoria
+        return self.db.get_categorias().get(nombre)
 
     def consultar_informacion_proveedor(self, nombre):
-        datos_proveedor = self.proveedores[nombre]
-        return datos_proveedor
+        return self.db.get_proveedores().get(nombre)
 
     def consultar_informacion_bodega(self, nombre):
-        datos_bodega = self.bodegas[nombre]
-        return datos_bodega
+        return self.db.get_bodegas().get(nombre)
 
     def consultar_producto_en_bodega(self, producto, bodega):
-        if producto not in self.bodegas[bodega]['productos']:
-            return False
-        return True
+        return producto in self.db.get_bodegas().get(bodega, {}).get('productos', [])
 
     def calcular_valor_total_stock(self):
         total_stock = 0
-        for _, datos in self.productos.items():
-            total_producto = datos['stock'] * datos['precio']
-            total_stock += total_producto
+        # Calcular el valor total del stock de todos los productos
+        for producto in self.db.get_productos().values():
+            total_stock += producto['stock'] * producto['precio']
         return total_stock
 
     def genera_informes_stock(self):
@@ -97,19 +130,16 @@ class Negocio:
             - informe (dict): Diccionario con la información agregada de stock
             por cada entidad.
             """
-
             for entidad, datos in entidades.items():
                 # Obtener la lista de productos de la entidad
                 lista_productos = datos.get('productos', [])
-
-                # Inicializar el stock total de los productos
                 stock_total_productos = 0
 
                 # Calcular el stock total de los productos en esta entidad
                 for producto in lista_productos:
-                    if producto in self.productos:  # Verificar si el producto existe en self.productos
-                        stock_total_productos += self.productos[producto]['stock']
-                    # Si el producto no existe, simplemente lo salta y no hace nada
+                    if producto in self.db.get_productos():  # Verificar si el producto existe
+                        stock_total_productos += self.db.get_productos()[
+                            producto]['stock']
 
                 # Guardar la información en el informe
                 informe[entidad] = [
@@ -124,9 +154,9 @@ class Negocio:
             return informe
 
         # Generar informes separados para cada tipo de entidad
-        informe_categoria = obtener_datos(self.categorias)
-        informe_proveedor = obtener_datos(self.proveedores)
-        informe_bodega = obtener_datos(self.bodegas)
+        informe_categoria = obtener_datos(self.db.get_categorias())
+        informe_proveedor = obtener_datos(self.db.get_proveedores())
+        informe_bodega = obtener_datos(self.db.get_bodegas())
 
         return {
             "stock_total": [self.total_productos, self.stock_total],
