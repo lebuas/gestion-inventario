@@ -1,16 +1,137 @@
+
 {
     "muebles": {
-        "descripcion": "muesbles blancos",
+        "descripcion": "Muebles blancos",
         "categoria": "casa",
-        "proveedor": "leymar",
+        "proveedor": "daniela_muebles",
         "precio": 25000.0,
         "stock": 5
     },
     "leche": {
-        "descripcion": "asdfdsf",
+        "descripcion": "Leche entera de vaca",
         "categoria": "hogar",
-        "proveedor": "luis",
+        "proveedor": "Luis",
         "precio": 32423.0,
         "stock": 195.0
+    },
+    "pan": {
+        "descripcion": "Pan de molde fresco",
+        "categoria": "panadería",
+        "proveedor": "Panadería El Buen Sabor",
+        "precio": 2500.0,
+        "stock": 120.0
+    },
+    "arroz": {
+        "descripcion": "Arroz de grano largo",
+        "categoria": "alimentos",
+        "proveedor": "Distribuciones Ybarra",
+        "precio": 3500.0,
+        "stock": 300.0
+    },
+    "refresco_cola": {
+        "descripcion": "Refresco cola de 2L",
+        "categoria": "bebidas",
+        "proveedor": "Coca-Cola",
+        "precio": 1500.0,
+        "stock": 50.0
+    },
+    "shampoo": {
+        "descripcion": "Shampoo para todo tipo de cabello",
+        "categoria": "cuidado_personal",
+        "proveedor": "Procter & Gamble",
+        "precio": 2000.0,
+        "stock": 85.0
+    },
+    "cerveza": {
+        "descripcion": "Cerveza artesanal de 330ml",
+        "categoria": "bebidas",
+        "proveedor": "Cervecería Central",
+        "precio": 3500.0,
+        "stock": 60.0
+    },
+    "desinfectante": {
+        "descripcion": "Desinfectante multiusos",
+        "categoria": "limpieza",
+        "proveedor": "Clorox",
+        "precio": 800.0,
+        "stock": 200.0
+    },
+    "atún": {
+        "descripcion": "Atún en aceite de oliva",
+        "categoria": "conservas",
+        "proveedor": "Atlantis",
+        "precio": 1800.0,
+        "stock": 100.0
+    },
+    "silla_ergonomica": {
+        "descripcion": "Silla ergonómica para oficina",
+        "categoria": "muebles",
+        "proveedor": "OfiMuebles",
+        "precio": 12000.0,
+        "stock": 15.0
+    },
+    "zapatillas_deportivas": {
+        "descripcion": "Zapatillas deportivas para correr",
+        "categoria": "moda",
+        "proveedor": "Nike",
+        "precio": 8500.0,
+        "stock": 25.0
+    },
+    "televisor_4k": {
+        "descripcion": "Televisor 4K UHD de 55 pulgadas",
+        "categoria": "electrónicos",
+        "proveedor": "Samsung",
+        "precio": 45000.0,
+        "stock": 10.0
+    },
+    "comida_perros": {
+        "descripcion": "Comida balanceada para perros adultos",
+        "categoria": "mascotas",
+        "proveedor": "Pedigree",
+        "precio": 5000.0,
+        "stock": 50.0
+    },
+    "mantequilla": {
+        "descripcion": "Mantequilla fresca de vaca",
+        "categoria": "lácteos",
+        "proveedor": "Lácteos La Vaca Feliz",
+        "precio": 3000.0,
+        "stock": 80.0
+    },
+    "televisor_led": {
+        "descripcion": "Televisor LED de 40 pulgadas",
+        "categoria": "electrónicos",
+        "proveedor": "Sony",
+        "precio": 25000.0,
+        "stock": 8.0
+    },
+    "pelota_futbol": {
+        "descripcion": "Pelota de fútbol profesional",
+        "categoria": "deportes",
+        "proveedor": "Adidas",
+        "precio": 2500.0,
+        "stock": 45.0
+    },
+    "microondas": {
+        "descripcion": "Microondas con grill y 20L de capacidad",
+        "categoria": "electrónicos",
+        "proveedor": "LG",
+        "precio": 8000.0,
+        "stock": 30.0
+    },
+    "silla_comedor": {
+        "descripcion": "Silla de comedor moderna",
+        "categoria": "muebles",
+        "proveedor": "Muebles Casa Blanca",
+        "precio": 3500.0,
+        "stock": 40.0
+    },
+    "filtro_agua": {
+        "descripcion": "Filtro de agua para 5L",
+        "categoria": "hogar",
+        "proveedor": "Brita",
+        "precio": 1000.0,
+        "stock": 60.0
     }
 }
+

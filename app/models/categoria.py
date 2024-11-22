@@ -10,16 +10,9 @@ class Categoria:
         return self.categorias
 
     def añadir_producto(self, categoria, producto):
-        """
-        Añade un producto a la lista de productos de una categoría específica.
-        """
-        # Verificar si el producto ya está en la lista
         if producto in self.categorias[categoria]['productos']:
-            return False  # El producto ya está en la lista
-
+            return False
         self.categorias[categoria]['productos'].append(producto)
-
-        # Guardar los cambios
         self.db.set_categorias(self.categorias)
         return True
 
@@ -29,12 +22,9 @@ class Categoria:
         """
         if categoria not in self.categorias:
             return False
-
-        if producto not in self.categorias[categoria]['productos']:
+        elif producto not in self.categorias[categoria]['productos']:
             return False
 
         self.categorias[categoria]['productos'].remove(producto)
-
-        # Guardar los cambios
         self.db.set_categorias(self.categorias)
         return True

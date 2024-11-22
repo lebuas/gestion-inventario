@@ -113,9 +113,6 @@ class Negocio:
         return total_stock
 
     def genera_informes_stock(self):
-        self.stock_total = 0
-        self.total_productos = 0
-
         def obtener_datos(entidades):
             informe = {}
             """
@@ -146,12 +143,14 @@ class Negocio:
                     len(lista_productos),  # Número de productos
                     stock_total_productos  # Stock total
                 ]
-
-                # Actualizar los totales
-                self.stock_total += stock_total_productos
-                self.total_productos += len(lista_productos)
-
             return informe
+
+        def stock_total():
+            stock_total = 0
+            total_productos = len(self.db.get_productos())
+            for producto, datos in self.db.get_productos().items():
+                stock_total += datos['stock']
+            return [total_productos, stock_total]
 
         # Generar informes separados para cada tipo de entidad
         informe_categoria = obtener_datos(self.db.get_categorias())
@@ -159,7 +158,7 @@ class Negocio:
         informe_bodega = obtener_datos(self.db.get_bodegas())
 
         return {
-            "stock_total": [self.total_productos, self.stock_total],
+            "stock_total": stock_total(),
             "categorias": informe_categoria,
             "proveedores": informe_proveedor,
             "bodegas": informe_bodega

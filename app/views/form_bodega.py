@@ -35,7 +35,7 @@ class FormBodega:
 
         # Botón para agregar el producto a la bodega
         tk.Button(self.formulario_frame, text="Agregar", command=lambda: self.controller.controller_añadir_producto(
-            producto_entry.get(), bodega_entry.get(), self.formulario_frame)
+            producto_entry.get().lower(), bodega_entry.get().lower(), self.formulario_frame)
         ).grid(row=2, column=0, columnspan=2, pady=10)
         self.__boton_cerrar(2)
 
@@ -56,6 +56,6 @@ class FormBodega:
 
         # Botón para retirar el producto de la bodega
         tk.Button(self.formulario_frame, text="Retirar", command=lambda: self.controller.controller_retirar_producto(
-            producto_entry.get(), bodega_entry.get(), self.formulario_frame)
+            producto_entry.get().lower(), bodega_entry.get().lower(), self.formulario_frame)
         ).grid(row=2, column=0, columnspan=2, pady=10)
         self.__boton_cerrar(2)

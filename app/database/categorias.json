@@ -1,20 +1,82 @@
 {
-    "a": {
-        "descripcion": "sdaf",
-        "productos": []
-    },
-    "asfdasdfds": {
-        "descripcion": "asdf",
-        "productos": []
-    },
-    "hogar": {
-        "descripcion": "productos del hogar",
-        "productos": [
-            "leche"
-        ]
-    },
-    "animales": {
-        "descripcion": "animales marinos",
-        "productos": []
-    }
+  "alimentos": {
+    "descripcion": "productos comestibles y perecederos",
+    "productos": ["arroz", "frijoles", "aceite", "harina"]
+  },
+  "bebidas": {
+    "descripcion": "bebidas alcohólicas y no alcohólicas",
+    "productos": ["cerveza", "vino", "refrescos", "agua mineral"]
+  },
+  "limpieza": {
+    "descripcion": "productos para limpieza y mantenimiento",
+    "productos": ["jabón líquido", "cloro", "desinfectantes", "esponjas"]
+  },
+  "cuidado_personal": {
+    "descripcion": "artículos de higiene personal",
+    "productos": ["shampoo", "pasta dental", "jabón de tocador", "crema corporal"]
+  },
+  "conservas": {
+    "descripcion": "alimentos enlatados y envasados",
+    "productos": ["atún", "sardinas", "tomates pelados", "frutas en almíbar"]
+  },
+  "lácteos": {
+    "descripcion": "productos derivados de la leche",
+    "productos": ["leche", "queso", "yogurt", "mantequilla"]
+  },
+  "frutas_y_verduras": {
+    "descripcion": "productos frescos de origen agrícola",
+    "productos": ["manzanas", "plátanos", "zanahorias", "papas"]
+  },
+  "carnes": {
+    "descripcion": "carnes rojas, blancas y embutidos",
+    "productos": ["res", "pollo", "cerdo", "jamón"]
+  },
+  "panadería": {
+    "descripcion": "productos de panadería y repostería",
+    "productos": ["pan blanco", "pan integral", "galletas", "pasteles"]
+  },
+  "congelados": {
+    "descripcion": "productos congelados para conservación",
+    "productos": ["helados", "carne congelada", "verduras congeladas"]
+  },
+  "electrónicos": {
+    "descripcion": "electrodomésticos y dispositivos electrónicos",
+    "productos": ["microondas", "refrigeradores", "televisores"]
+  },
+  "hogar": {
+    "descripcion": "artículos para el hogar y decoración",
+    "productos": ["platos", "cubiertos", "vasos", "cortinas"]
+  },
+  "jardinería": {
+    "descripcion": "herramientas y productos para el jardín",
+    "productos": ["tierra para plantas", "semillas", "fertilizantes"]
+  },
+  "mascotas": {
+    "descripcion": "productos para cuidado de animales domésticos",
+    "productos": ["comida para perros", "comida para gatos", "camas para mascotas"]
+  },
+  "papelería": {
+    "descripcion": "artículos de oficina y escolares",
+    "productos": ["cuadernos", "lápices", "tijeras", "carpetas"]
+  },
+  "ferretería": {
+    "descripcion": "herramientas y materiales de construcción",
+    "productos": ["clavos", "martillos", "taladros", "cintas métricas"]
+  },
+  "moda": {
+    "descripcion": "ropa, calzado y accesorios",
+    "productos": ["camisetas", "pantalones", "zapatos", "gorras"]
+  },
+  "juguetería": {
+    "descripcion": "juguetes y juegos para niños",
+    "productos": ["muñecas", "carros de juguete", "puzzles"]
+  },
+  "farmacia": {
+    "descripcion": "medicamentos y productos de salud",
+    "productos": ["paracetamol", "ibuprofeno", "termómetros"]
+  },
+  "deportes": {
+    "descripcion": "artículos y equipos deportivos",
+    "productos": ["pelotas", "ropa deportiva", "raquetas"]
+  }
 }

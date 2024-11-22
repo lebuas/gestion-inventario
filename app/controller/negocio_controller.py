@@ -1,5 +1,5 @@
 from models.negocio import Negocio
-from tkinter import messagebox
+from tkinter import messagebox, ttk
 import tkinter as tk
 
 
@@ -164,7 +164,6 @@ class NegocioController():
             messagebox.showinfo(
                 "Éxito", f"Bodega '{datos[0]}' registrada correctamente.")
 
-            self.debug()
             self.limpiar_formulario()
 
         except Exception as e:
@@ -325,46 +324,86 @@ class NegocioController():
             'Aviso', f'El saldo total del  stock es de$: {total_stock}')
 
     def controller_generar_informe_stock(self):
+        """Genera el informe de stock y lo muestra en una ventana emergente"""
         # Crear ventana emergente para mostrar el informe
         ventana = tk.Toplevel()
         ventana.title("Informe de Stock")
-        ventana.geometry("600x430")
+        ventana.geometry("600x720")
 
+        # Obtener los datos del informe
         informe_stock_total = self.negocio.genera_informes_stock()
-        informe_texto = "Informe de Stock Total\n"
-        datos = informe_stock_total['stock_total']
-        informe_texto += f"Total stock: {datos[0]} Productos -- \
-        Unidades en total: {datos[1]} \n\n"
 
-        # Generar texto para Categorías
-        informe_texto += "Stock por Categoría:\n"
-        for categoria, datos in informe_stock_total["categorias"].items():
-            informe_texto += f"- {categoria}:Productos Registrados {datos[0]} \
-            Cantidas en stock {datos[1]} unidades en total\n"
-
-        # Generar texto para Proveedores
-        informe_texto += "\nStock por Proveedor:\n"
-        for proveedor, datos in informe_stock_total["proveedores"].items():
-            informe_texto += f"- {proveedor}: Productos Registrados:\
-            {datos[0]} Cantidad que suministro: {datos[1]}\n"
-
-        # Generar texto para Bodegas
-        informe_texto += "\nStock por Bodega:\n"
-        for bodega, datos in informe_stock_total["bodegas"].items():
-            informe_texto += f"- {bodega}: Productos Registrados:\
-            {datos[0]}, Unidades Disponibles: {datos[1]}\n"
-
-        # Mostrar título del informe
+        # Mostrar el informe de "Stock Total"
         tk.Label(ventana, text="Informe de Stock",
+                 font=("Arial", 20, "bold")).pack(pady=10)
+
+        # Crear Treeview para Stock Total
+        tree = ttk.Treeview(ventana, columns=(
+            "Total stock", "Unidades en total"), show="headings", height=1)  # Ajustar el alto
+        tree.heading("Total stock", text="Productos Total stock")
+        tree.heading("Unidades en total", text="Unidades en total")
+
+        # Añadir datos
+        datos = informe_stock_total['stock_total']
+        tree.insert("", "end", values=(datos[0], datos[1]))
+
+        tree.pack(padx=10, pady=10)
+
+        # Crear Treeview para Stock por Categoría
+        tk.Label(ventana, text="Stock por Categoría",
                  font=("Arial", 16, "bold")).pack(pady=10)
 
-        # Widget de texto para mostrar el informe
-        text_widget = tk.Text(ventana, wrap="word",
-                              height=20, width=70, font=("Arial", 10))
-        text_widget.insert("1.0", informe_texto)
-        # Hacer que el widget sea de solo lectura
-        text_widget.config(state="disabled")
-        text_widget.pack(padx=10, pady=10)
+        tree_categorias = ttk.Treeview(ventana, columns=(
+            "Categoría", "Productos Registrados", "Cantidad en stock"), show="headings", height=5)
+        tree_categorias.heading("Categoría", text="Categoría")
+        tree_categorias.heading("Productos Registrados",
+                                text="Productos Registrados")
+        tree_categorias.heading("Cantidad en stock", text="Cantidad en stock")
 
-        tk.Button(ventana, text="Cerrar",
+        # Añadir datos por categoría
+        for categoria, datos in informe_stock_total["categorias"].items():
+            tree_categorias.insert("", "end", values=(
+                categoria, datos[0], datos[1]))
+
+        tree_categorias.pack(padx=10, pady=10)
+
+        # Crear Treeview para Stock por Proveedor
+        tk.Label(ventana, text="Stock por Proveedor",
+                 font=("Arial", 16, "bold")).pack(pady=10)
+
+        tree_proveedores = ttk.Treeview(ventana, columns=(
+            "Proveedor", "Productos Registrados", "Cantidad suministrada"), show="headings", height=5)
+        tree_proveedores.heading("Proveedor", text="Proveedor")
+        tree_proveedores.heading(
+            "Productos Registrados", text="Productos Registrados")
+        tree_proveedores.heading(
+            "Cantidad suministrada", text="Cantidad suministrada")
+
+        # Añadir datos por proveedor
+        for proveedor, datos in informe_stock_total["proveedores"].items():
+            tree_proveedores.insert("", "end", values=(
+                proveedor, datos[0], datos[1]))
+
+        tree_proveedores.pack(padx=10, pady=10)
+
+        # Crear Treeview para Stock por Bodega
+        tk.Label(ventana, text="Stock por Bodega",
+                 font=("Arial", 16, "bold")).pack(pady=10)
+
+        tree_bodegas = ttk.Treeview(ventana, columns=(
+            "Bodega", "Productos Registrados", "Unidades disponibles"), show="headings", height=5)
+        tree_bodegas.heading("Bodega", text="Bodega")
+        tree_bodegas.heading("Productos Registrados",
+                             text="Productos Registrados")
+        tree_bodegas.heading("Unidades disponibles",
+                             text="Unidades disponibles")
+
+        # Añadir datos por bodega
+        for bodega, datos in informe_stock_total["bodegas"].items():
+            tree_bodegas.insert("", "end", values=(bodega, datos[0], datos[1]))
+
+        tree_bodegas.pack(padx=10, pady=10)
+
+        # Botón para cerrar la ventana con fuente más grande
+        tk.Button(ventana, text="Cerrar", font=("Arial", 12),
                   command=ventana.destroy).pack(pady=10)

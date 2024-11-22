@@ -1,18 +1,143 @@
+
 {
-    "leymar": {
-        "direccion": "diagona26",
+    "daniela_muesbles": {
+        "direccion": "Diagonal 26",
         "telefono": 318524,
         "productos": [
-            "camas",
-            "muebles"
+            "muebles",
+            "silla_ergonomica",
+            "silla_comedor"
         ]
     },
     "luis": {
-        "direccion": "afsds",
+        "direccion": "Avenida FDS 123",
         "telefono": 234324,
         "productos": [
-            "cafe",
-            "leche"
+            "leche",
+            "leche_entera",
+            "desinfectante"
+        ]
+    },
+    "panaderia_el_buen_sabor": {
+        "direccion": "Calle Panaderos 14",
+        "telefono": 348349,
+        "productos": [
+            "pan"
+        ]
+    },
+    "distribuciones_ybarra": {
+        "direccion": "Calle Las Palmas 32",
+        "telefono": 567890,
+        "productos": [
+            "arroz"
+        ]
+    },
+    "coca_cola": {
+        "direccion": "Avenida Coca 45",
+        "telefono": 123456,
+        "productos": [
+            "refresco_cola",
+            "refresco"
+        ]
+    },
+    "procter_gamble": {
+        "direccion": "Calle del Cuidado 78",
+        "telefono": 987654,
+        "productos": [
+            "shampoo"
+        ]
+    },
+    "cerveceria_central": {
+        "direccion": "Avenida Cerveza 101",
+        "telefono": 876543,
+        "productos": [
+            "cerveza"
+        ]
+    },
+    "clorox": {
+        "direccion": "Calle Limpeza 123",
+        "telefono": 234123,
+        "productos": [
+            "desinfectante"
+        ]
+    },
+    "atlantis": {
+        "direccion": "Calle Mar 45",
+        "telefono": 654321,
+        "productos": [
+            "atún"
+        ]
+    },
+    "ofimuebles": {
+        "direccion": "Calle Muebles 56",
+        "telefono": 112233,
+        "productos": [
+            "silla_ergonomica",
+            "silla_comedor"
+        ]
+    },
+    "nike": {
+        "direccion": "Avenida Deportiva 100",
+        "telefono": 334455,
+        "productos": [
+            "zapatillas_deportivas"
+        ]
+    },
+    "samsung": {
+        "direccion": "Calle Electrónica 99",
+        "telefono": 445566,
+        "productos": [
+            "televisor_4k"
+        ]
+    },
+    "pedigree": {
+        "direccion": "Calle Mascotas 101",
+        "telefono": 556677,
+        "productos": [
+            "comida_perros"
+        ]
+    },
+    "lacteos_la_vaca_feliz": {
+        "direccion": "Calle Lácteos 44",
+        "telefono": 667788,
+        "productos": [
+            "mantequilla"
+        ]
+    },
+    "sony": {
+        "direccion": "Calle Sonido 88",
+        "telefono": 778899,
+        "productos": [
+            "televisor_led"
+        ]
+    },
+    "adidas": {
+        "direccion": "Calle Deporte 22",
+        "telefono": 889900,
+        "productos": [
+            "pelota_futbol"
+        ]
+    },
+    "lg": {
+        "direccion": "Calle Innovación 111",
+        "telefono": 990011,
+        "productos": [
+            "microondas"
+        ]
+    },
+    "muebles_casa_blanca": {
+        "direccion": "Avenida Muebles 75",
+        "telefono": 101112,
+        "productos": [
+            "silla_comedor"
+        ]
+    },
+    "brita": {
+        "direccion": "Calle Agua 33",
+        "telefono": 121314,
+        "productos": [
+            "filtro_agua"
         ]
     }
 }
+
