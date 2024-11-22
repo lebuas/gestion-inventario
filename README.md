@@ -3,7 +3,7 @@
 ## Integrantes del Proyecto
 - **Nombre del Proyecto:** Sistema de Gestión de Inventario
 - **Integrantes:**
-  - Leymar buenaventura
+  - Leymar Buenaventura Asprilla
 ```sh
   https://github.com/lebuas
 ```
