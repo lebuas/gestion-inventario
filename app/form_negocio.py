@@ -1,6 +1,5 @@
-
 import tkinter as tk
-from controller.negocio_controller import NegocioController
+from negocio_controller import NegocioController
 
 
 class FormNegocio:

@@ -1,5 +1,4 @@
 class Proveedor:
-
     def __init__(self, nombre, direccion, telefono, lista):
         self.nombre_proveedor = nombre
         self.direccion = direccion

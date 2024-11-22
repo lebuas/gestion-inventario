@@ -1,5 +1,5 @@
 import tkinter as tk
-from controller.proveedor_controller import ProveedorController
+from proveedor_controller import ProveedorController
 
 
 class FormProveedor:

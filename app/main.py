@@ -1,6 +1,5 @@
-
 import tkinter as tk
-from views.gui_app import GuiApp
+from gui_app import GuiApp
 
 if __name__ == "__main__":
     root = tk.Tk()

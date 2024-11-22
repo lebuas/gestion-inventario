@@ -1,5 +1,5 @@
 import tkinter as tk
-from controller.bodega_controller import BodegaController
+from bodega_controller import BodegaController
 
 
 class FormBodega:

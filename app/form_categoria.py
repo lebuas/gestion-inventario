@@ -1,5 +1,5 @@
 import tkinter as tk
-from controller.categoria_controller import CategoriaController
+from categoria_controller import CategoriaController
 
 
 class FormCategoria:
