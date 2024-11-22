@@ -3,13 +3,8 @@
 ## Integrantes del Proyecto
 - **Nombre del Proyecto:** Sistema de Gestión de Inventario
 - **Integrantes:**
-  - Leymar Buenaventura Asprilla
-```sh
-  https://github.com/lebuas
-```
-  - Andres Felipe Martinez
-```sh
-  https://github.com/PipeCoding03-COL
+  [Leymar Buenaventura Asprilla](https://github.com/lebuas)
+  [Andres Felipe Martinez](https://github.com/PipeCoding03-COL)
 ```
 
 ## Requerimientos del Sistema
