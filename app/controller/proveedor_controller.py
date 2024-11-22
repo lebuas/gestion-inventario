@@ -38,14 +38,14 @@ class ProveedorController:
         # self.debug()
         elif proveedor not in self.get_proveedores:
             messagebox.showinfo(
-                "Aviso", f"El proveedor {proveedor} no se encuentra registrado")
+                "Aviso", f"El proveedor '{proveedor}' no se encuentra registrado")
             return
         elif self.proveedor.añadir_producto(proveedor, producto):
             messagebox.showinfo(
-                "Aviso", f"El producto {producto} se añadió al proveedor {proveedor} correctamente")
+                "Aviso", f"El producto '{producto}' se añadió al proveedor '{proveedor}' correctamente")
         else:
             messagebox.showerror(
-                "Error", f"El producto {producto} ya está asociado al proveedor {proveedor} o ocurrió un problema")
+                "Error", f"El producto '{producto}' ya está asociado al proveedor '{proveedor}' o ocurrió un problema")
 
         self.__limpiar_formulario()
 
@@ -56,14 +56,14 @@ class ProveedorController:
         # self.debug()
         elif proveedor not in self.get_proveedores:
             messagebox.showinfo(
-                "Aviso", f"El proveedor {proveedor} no se encuentra registrado")
+                "Aviso", f"El proveedor '{proveedor}' no se encuentra registrado")
             return
 
         if self.proveedor.retirar_producto(proveedor, producto):
             messagebox.showinfo(
-                "Aviso", f"El producto {producto} se retiró del proveedor {proveedor} correctamente")
+                "Aviso", f"El producto '{producto}' se retiró del proveedor '{proveedor}' correctamente")
         else:
             messagebox.showerror(
-                "Error", f"El producto {producto} no está asociado al proveedor {proveedor} o ocurrió un problema")
+                "Error", f"El producto '{producto}' no está asociado al proveedor '{proveedor}' o ocurrió un problema")
 
         self.__limpiar_formulario()

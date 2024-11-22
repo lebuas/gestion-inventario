@@ -9,7 +9,7 @@ class Bodega:
     def get_datos(self):
         return self.bodegas
 
-    def añadir_producto(self, bodega, producto):
+    def agregar_producto(self, bodega, producto):
         """
         Añade un producto a la lista de productos de una bodega específica.
         """

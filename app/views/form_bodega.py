@@ -34,7 +34,7 @@ class FormBodega:
         bodega_entry.grid(row=1, column=1, padx=10, pady=5)
 
         # Botón para agregar el producto a la bodega
-        tk.Button(self.formulario_frame, text="Agregar", command=lambda: self.controller.controller_añadir_producto(
+        tk.Button(self.formulario_frame, text="Agregar", command=lambda: self.controller.controller_agregar_producto(
             producto_entry.get().lower(), bodega_entry.get().lower(), self.formulario_frame)
         ).grid(row=2, column=0, columnspan=2, pady=10)
         self.__boton_cerrar(2)

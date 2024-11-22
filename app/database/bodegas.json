@@ -1,189 +1,189 @@
 {
-  "bodega1": {
-    "ubicacion": "Ciudad de México, México",
-    "capacidad": 500,
-    "productos": [
-      "arroz",
-      "frijoles",
-      "aceite"
-    ]
-  },
-  "bodega2": {
-    "ubicacion": "Guadalajara, México",
-    "capacidad": 300,
-    "productos": [
-      "harina",
-      "azúcar",
-      "leche en polvo"
-    ]
-  },
-  "bodega3": {
-    "ubicacion": "Monterrey, México",
-    "capacidad": 800,
-    "productos": [
-      "maíz",
-      "café",
-      "chocolate"
-    ]
-  },
-  "bodega4": {
-    "ubicacion": "Buenos Aires, Argentina",
-    "capacidad": 600,
-    "productos": [
-      "yerba mate",
-      "vino",
-      "carne enlatada"
-    ]
-  },
-  "bodega5": {
-    "ubicacion": "Santiago, Chile",
-    "capacidad": 400,
-    "productos": [
-      "aceitunas",
-      "pescado en conserva",
-      "queso"
-    ]
-  },
-  "bodega6": {
-    "ubicacion": "Bogotá, Colombia",
-    "capacidad": 700,
-    "productos": [
-      "café colombiano",
-      "bananas",
-      "azúcar"
-    ]
-  },
-  "bodega7": {
-    "ubicacion": "Lima, Perú",
-    "capacidad": 500,
-    "productos": [
-      "papas",
-      "maíz morado",
-      "harina de quinua"
-    ]
-  },
-  "bodega8": {
-    "ubicacion": "Quito, Ecuador",
-    "capacidad": 450,
-    "productos": [
-      "cacao",
-      "camarones",
-      "pescado"
-    ]
-  },
-  "bodega9": {
-    "ubicacion": "Caracas, Venezuela",
-    "capacidad": 350,
-    "productos": [
-      "harina pan",
-      "aceite de maíz",
-      "frijoles negros"
-    ]
-  },
-  "bodega10": {
-    "ubicacion": "São Paulo, Brasil",
-    "capacidad": 900,
-    "productos": [
-      "café brasileño",
-      "azúcar morena",
-      "arroz"
-    ]
-  },
-  "bodega11": {
-    "ubicacion": "Rio de Janeiro, Brasil",
-    "capacidad": 600,
-    "productos": [
-      "carnes",
-      "pescado",
-      "sal"
-    ]
-  },
-  "bodega12": {
-    "ubicacion": "Asunción, Paraguay",
-    "capacidad": 200,
-    "productos": [
-      "mandioca",
-      "yerba mate",
-      "maíz"
-    ]
-  },
-  "bodega13": {
-    "ubicacion": "Montevideo, Uruguay",
-    "capacidad": 300,
-    "productos": [
-      "carne vacuna",
-      "vino tinto",
-      "queso provolone"
-    ]
-  },
-  "bodega14": {
-    "ubicacion": "Madrid, España",
-    "capacidad": 1000,
-    "productos": [
-      "jamón ibérico",
-      "aceite de oliva",
-      "vino"
-    ]
-  },
-  "bodega15": {
-    "ubicacion": "Barcelona, España",
-    "capacidad": 750,
-    "productos": [
-      "turrones",
-      "queso manchego",
-      "cava"
-    ]
-  },
-  "bodega16": {
-    "ubicacion": "Lisboa, Portugal",
-    "capacidad": 600,
-    "productos": [
-      "bacalao",
-      "aceitunas",
-      "vino de oporto"
-    ]
-  },
-  "bodega17": {
-    "ubicacion": "Londres, Reino Unido",
-    "capacidad": 800,
-    "productos": [
-      "té",
-      "galletas",
-      "whisky"
-    ]
-  },
-  "bodega18": {
-    "ubicacion": "París, Francia",
-    "capacidad": 900,
-    "productos": [
-      "vino francés",
-      "quesos",
-      "baguettes"
-    ]
-  },
-  "bodega19": {
-    "ubicacion": "Roma, Italia",
-    "capacidad": 850,
-    "productos": [
-      "pasta",
-      "salsas",
-      "aceitunas"
-    ]
-  },
-  "bodega20": {
-    "ubicacion": "Berlín, Alemania",
-    "capacidad": 700,
-    "productos": [
-      "cerveza",
-      "salchichas",
-      "pan negro"
-    ]
-  },
-  "asdfads": {
-    "ubicacion": "asdfads",
-    "capacidad": 234.0,
-    "productos": [
-      "asd"
-    ]
-  }
+    "bodega1": {
+        "ubicacion": "Ciudad de México, México",
+        "capacidad": 500,
+        "productos": [
+            "arroz",
+            "frijoles",
+            "aceite"
+        ]
+    },
+    "bodega2": {
+        "ubicacion": "Guadalajara, México",
+        "capacidad": 300,
+        "productos": [
+            "harina",
+            "azúcar",
+            "leche en polvo"
+        ]
+    },
+    "bodega3": {
+        "ubicacion": "Monterrey, México",
+        "capacidad": 800,
+        "productos": [
+            "maíz",
+            "café",
+            "chocolate"
+        ]
+    },
+    "bodega4": {
+        "ubicacion": "Buenos Aires, Argentina",
+        "capacidad": 600,
+        "productos": [
+            "yerba mate",
+            "vino",
+            "carne enlatada"
+        ]
+    },
+    "bodega5": {
+        "ubicacion": "Santiago, Chile",
+        "capacidad": 400,
+        "productos": [
+            "aceitunas",
+            "pescado en conserva",
+            "queso"
+        ]
+    },
+    "bodega6": {
+        "ubicacion": "Bogotá, Colombia",
+        "capacidad": 700,
+        "productos": [
+            "café colombiano",
+            "bananas",
+            "azúcar"
+        ]
+    },
+    "bodega7": {
+        "ubicacion": "Lima, Perú",
+        "capacidad": 500,
+        "productos": [
+            "papas",
+            "maíz morado",
+            "harina de quinua"
+        ]
+    },
+    "bodega8": {
+        "ubicacion": "Quito, Ecuador",
+        "capacidad": 450,
+        "productos": [
+            "cacao",
+            "camarones",
+            "pescado"
+        ]
+    },
+    "bodega9": {
+        "ubicacion": "Caracas, Venezuela",
+        "capacidad": 350,
+        "productos": [
+            "harina pan",
+            "aceite de maíz",
+            "frijoles negros"
+        ]
+    },
+    "bodega10": {
+        "ubicacion": "São Paulo, Brasil",
+        "capacidad": 900,
+        "productos": [
+            "café brasileño",
+            "azúcar morena",
+            "arroz"
+        ]
+    },
+    "bodega11": {
+        "ubicacion": "Rio de Janeiro, Brasil",
+        "capacidad": 600,
+        "productos": [
+            "carnes",
+            "pescado",
+            "sal"
+        ]
+    },
+    "bodega12": {
+        "ubicacion": "Asunción, Paraguay",
+        "capacidad": 200,
+        "productos": [
+            "mandioca",
+            "yerba mate",
+            "maíz"
+        ]
+    },
+    "bodega13": {
+        "ubicacion": "Montevideo, Uruguay",
+        "capacidad": 300,
+        "productos": [
+            "carne vacuna",
+            "vino tinto",
+            "queso provolone"
+        ]
+    },
+    "bodega14": {
+        "ubicacion": "Madrid, España",
+        "capacidad": 1000,
+        "productos": [
+            "jamón ibérico",
+            "aceite de oliva",
+            "vino"
+        ]
+    },
+    "bodega15": {
+        "ubicacion": "Barcelona, España",
+        "capacidad": 750,
+        "productos": [
+            "turrones",
+            "queso manchego",
+            "cava"
+        ]
+    },
+    "bodega16": {
+        "ubicacion": "Lisboa, Portugal",
+        "capacidad": 600,
+        "productos": [
+            "bacalao",
+            "aceitunas",
+            "vino de oporto"
+        ]
+    },
+    "bodega17": {
+        "ubicacion": "Londres, Reino Unido",
+        "capacidad": 800,
+        "productos": [
+            "té",
+            "galletas",
+            "whisky"
+        ]
+    },
+    "bodega18": {
+        "ubicacion": "París, Francia",
+        "capacidad": 900,
+        "productos": [
+            "vino francés",
+            "quesos",
+            "baguettes"
+        ]
+    },
+    "bodega19": {
+        "ubicacion": "Roma, Italia",
+        "capacidad": 850,
+        "productos": [
+            "pasta",
+            "salsas",
+            "aceitunas"
+        ]
+    },
+    "bodega20": {
+        "ubicacion": "Berlín, Alemania",
+        "capacidad": 700,
+        "productos": [
+            "cerveza",
+            "salchichas",
+            "pan negro"
+        ]
+    },
+    "asdfads": {
+        "ubicacion": "asdfads",
+        "capacidad": 234.0,
+        "productos": [
+            "asd"
+        ]
+    }
 }

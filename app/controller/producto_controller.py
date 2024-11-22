@@ -35,14 +35,14 @@ class ProductoController:
         # self.debug()
         elif nombre not in self.get_productos:
             messagebox.showinfo(
-                "Aviso", f"El producto {nombre} no se encuentra registrado")
+                "Aviso", f"El producto '{nombre}' no se encuentra registrado")
             return
 
         try:
             cantida = float(cantida)
             if self.producto.aumentar_stock(nombre, cantida):
                 messagebox.showinfo(
-                    "Aviso", f"Al producto {nombre} se añadieron {cantida} \
+                    "Aviso", f"Al producto '{nombre}' se añadieron '{cantida}' \
                     unidades correctamente")
             else:
                 messagebox.showerror(
@@ -61,14 +61,14 @@ class ProductoController:
         # self.debug()
         elif nombre not in self.get_productos:
             messagebox.showinfo(
-                "Aviso", f"El producto {nombre} no se encuentra registrado")
+                "Aviso", f"El producto '{nombre}' no se encuentra registrado")
             return
 
         try:
             cantida = float(cantida)
             if self.producto.disminuir_stock(nombre, cantida):
                 messagebox.showinfo(
-                    "Aviso", f"Al producto {nombre} se le quitaron {cantida} \
+                    "Aviso", f"Al producto '{nombre}' se le quitaron '{cantida}'\
                     unidades correctamente")
             else:
                 messagebox.showerror(

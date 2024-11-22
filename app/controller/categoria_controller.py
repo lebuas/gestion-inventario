@@ -35,15 +35,15 @@ class CategoriaController:
         # self.debug()
         elif categoria not in self.get_categorias:
             messagebox.showinfo(
-                "Aviso", f"La categoría {categoria} no se encuentra registrada")
+                "Aviso", f"La categoría '{categoria}' no se encuentra registrada")
             return
 
         if self.categoria.añadir_producto(categoria, producto):
             messagebox.showinfo(
-                "Aviso", f"El producto {producto} se añadió a la categoría {categoria} correctamente")
+                "Aviso", f"El producto '{producto}' se añadió a la categoría '{categoria}' correctamente")
         else:
             messagebox.showerror(
-                "Error", f"El producto {producto} ya está en la categoría {categoria} o ocurrió un problema")
+                "Error", f"El producto '{producto}'  ya está en la categoría '{categoria}' o ocurrió un problema")
 
         self.__limpiar_formulario()
 
@@ -55,14 +55,14 @@ class CategoriaController:
         self.debug()
         if categoria not in self.get_categorias:
             messagebox.showinfo(
-                "Aviso", f"La categoría {categoria} no se encuentra registrada")
+                "Aviso", f"La categoría '{categoria}' no se encuentra registrada")
             return
 
         if self.categoria.retirar_producto(categoria, producto):
             messagebox.showinfo(
-                "Aviso", f"El producto {producto} se retiró de la categoría {categoria} correctamente")
+                "Aviso", f"El producto '{producto}' se retiró de la categoría '{categoria}' correctamente")
         else:
             messagebox.showerror(
-                "Error", f"El producto {producto} no está en la categoría {categoria} o ocurrió un problema")
+                "Error", f"El producto '{producto}' no está en la categoría '{categoria}' o ocurrió un problema")
 
         self.__limpiar_formulario()
