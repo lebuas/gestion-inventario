@@ -85,7 +85,7 @@ pip install -r requirements.txt
 
 Con todo configurado, puedes ejecutar la aplicación desde la terminal, navegando hasta el directorio deonde se encuentra la entra del programa:
 
-Desde la raíz del directorio, navegamos hasta el directorio source(src) y dentro del directori ejecutamos:
+Desde la raíz del directorio, navegamos hasta el directorio app y dentro del directori ejecutamos:
 Para linux(ubuntu)/mac
 ```sh
 python3 main.py
