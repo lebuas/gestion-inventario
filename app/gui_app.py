@@ -1,10 +1,10 @@
 import tkinter as tk
 from tkinter import ttk
-from views.form_bodega import FormBodega
-from views.form_negocio import FormNegocio
-from views.form_proveedor import FormProveedor
-from views.form_producto import FormProducto
-from views.form_categoria import FormCategoria
+from form_bodega import FormBodega
+from form_negocio import FormNegocio
+from form_proveedor import FormProveedor
+from form_producto import FormProducto
+from form_categoria import FormCategoria
 
 
 class GuiApp:

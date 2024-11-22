@@ -1,4 +1,4 @@
-from controller.producto_controller import ProductoController
+from producto_controller import ProductoController
 import tkinter as tk
 
 

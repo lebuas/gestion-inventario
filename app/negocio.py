@@ -1,6 +1,5 @@
 import re
 
-
 class Negocio:
     def __init__(self, productos, categorias, proveedores, bodegas):
         self.productos = productos

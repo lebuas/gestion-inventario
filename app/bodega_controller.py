@@ -1,5 +1,5 @@
-from controller.lista_datos import LisDatos
-from models.bodega import Bodega
+from lista_datos import LisDatos
+from bodega import Bodega
 from tkinter import messagebox
 import tkinter as tk
 
